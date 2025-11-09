@@ -6,7 +6,13 @@ using HarmonyLib;
 
 namespace abundance_aeruta;
 
-[BepInPlugin(MyPluginInfo.PluginGuid, MyPluginInfo.PluginName, MyPluginInfo.PluginVersion)]
+public static class PluginInfo {
+    public const string PluginGuid = "com.ryocery.abundance_aeruta";
+    public const string PluginName = "Abundance";
+    public const string PluginVersion = "1.0.0";
+}
+
+[BepInPlugin(PluginInfo.PluginGuid, PluginInfo.PluginName, PluginInfo.PluginVersion)]
 public class Abundance : BasePlugin {
     internal new static ManualLogSource Log { get; private set; } = null!;
     private static Harmony _harmony = null!;
@@ -20,14 +26,14 @@ public class Abundance : BasePlugin {
     
     public override void Load() {
         Log = base.Log;
-        Log.LogInfo($"Plugin {MyPluginInfo.PluginGuid} is loading...");
+        Log.LogInfo($"Plugin {PluginInfo.PluginGuid} is loading...");
         
         EnableMoneyMultiplier = Config.Bind("Money Settings", "EnableMoneyMultiplier", true, "Enable money multiplier");
         MoneyMultiplier = Config.Bind("Money Settings", "MoneyMultiplier", 2.0f, "Money multiplier amount (e.g., 2.0 = double money)");
         EnableMaterialMultiplier = Config.Bind("Material Settings", "EnableMaterialMultiplier", true, "Enable material multiplier for monster drops");
         MaterialMultiplier = Config.Bind("Material Settings", "MaterialMultiplier", 2.0f, "Material multiplier amount (e.g., 2.0 = double materials)");
         
-        _harmony = new Harmony(MyPluginInfo.PluginGuid);
+        _harmony = new Harmony(PluginInfo.PluginGuid);
         _harmony.PatchAll();
         
         Log.LogInfo($"Money multiplier: {(EnableMoneyMultiplier.Value ? $"{MoneyMultiplier.Value}x" : "Disabled")}");
@@ -59,10 +65,4 @@ public class InventoryAddItemPatch {
             Abundance.Log.LogError($"Error in patch: {ex}");
         }
     }
-}
-
-public static class MyPluginInfo {
-    public const string PluginGuid = "com.ryocery.abundance_aeruta";
-    public const string PluginName = "Abundance";
-    public const string PluginVersion = "1.0.0";
 }
