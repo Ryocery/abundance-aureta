@@ -1,0 +1,12 @@
+<Project>
+    <Target Name="CopyToGame" AfterTargets="Build">
+        <PropertyGroup>
+            <PluginPath>$(AERUTA_GAME_PATH)\BepInEx\plugins\$(MSBuildProjectName)</PluginPath>
+        </PropertyGroup>
+        <ItemGroup>
+            <PluginFiles Include="$(TargetDir)**\*.*" />
+        </ItemGroup>
+        <Message Text="Copying to: $(PluginPath)" Importance="high" Condition="Exists('$(AERUTA_GAME_PATH)')" />
+        <Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(PluginPath)\%(RecursiveDir)" Condition="Exists('$(AERUTA_GAME_PATH)')" />
+    </Target>
+</Project>
