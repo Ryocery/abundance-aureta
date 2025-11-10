@@ -44,7 +44,7 @@ public class Abundance : BasePlugin {
 [HarmonyPatch(typeof(Inventory), nameof(Inventory.AddItem))]
 public class InventoryAddItemPatch {
     static void Prefix(ItemStack newItem, bool dontShowNotice) {
-        if (newItem?.Base == null) return;
+        if (newItem.Base == null) return;
 
         try {
             uint itemId = newItem.Base.Id;
