@@ -1,6 +1,6 @@
 # Abundance
 
-A very simple Aureta mod that multiplies money and monster material drops.
+A very simple Aureta mod that multiplies money and material drops.
 
 ## Features
 
