@@ -1,13 +1,11 @@
 # Abundance
 
-A mod that multiplies money and monster material drops in Aeruta.
+A very simple Aureta mod that multiplies money and monster material drops.
 
 ## Features
 
 - Configurable money multiplier (default: 2.0x)
 - Configurable monster material multiplier (default: 2.0x)
-- Toggle each multiplier on/off independently
-- Clean configuration system
 
 ## Configuration
 
@@ -24,7 +22,7 @@ MaterialMultiplier = 2.0
 
 ## Installation
 
-1. Install BepInEx IL2CPP branch for Aeruta
+1. Install **BepInEx IL2CPP** branch for Aeruta
 2. Extract the mod folder into `BepInEx/plugins`
 3. Launch the game to create the config
 4. Adjust config values as desired
