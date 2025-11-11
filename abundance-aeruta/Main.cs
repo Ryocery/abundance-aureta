@@ -9,7 +9,7 @@ namespace abundance_aeruta;
 public static class Plugin {
     public const string Guid = "com.ryocery.abundance_aeruta";
     public const string Name = "Abundance";
-    public const string Version = "1.0.0";
+    public const string Version = "1.1.0";
 }
 
 [BepInPlugin(Plugin.Guid, Plugin.Name, Plugin.Version)]
