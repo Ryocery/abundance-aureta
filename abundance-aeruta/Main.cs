@@ -31,11 +31,11 @@ public class Abundance : BasePlugin {
 
         EnableMoneyMultiplier = Config.Bind("Money Settings", "EnableMoneyMultiplier", true, "Enable money multiplier");
         MoneyMultiplier = Config.Bind("Money Settings", "MoneyMultiplier", 2.0f, "Money multiplier amount (e.g., 2.0 = double money)");
-        EnableMaterialMultiplier = Config.Bind("Material Settings", "EnableMaterialMultiplier", true, "Enable material multiplier for monster drops");
-        MaterialMultiplier = Config.Bind("Material Settings", "MaterialMultiplier", 2.0f, "Material multiplier amount (e.g., 2.0 = double materials)");
         EnableWoodMultiplier = Config.Bind("Wood Settings", "EnableWoodMultiplier", true, "Enable wood multiplier");
         WoodMultiplier = Config.Bind("Wood Settings", "WoodMultiplier", 2.0f, "Wood multiplier amount (e.g., 2.0 = double wood)");
-
+        EnableMaterialMultiplier = Config.Bind("Material Settings", "EnableMaterialMultiplier", true, "Enable material multiplier for monster drops");
+        MaterialMultiplier = Config.Bind("Material Settings", "MaterialMultiplier", 2.0f, "Material multiplier amount (e.g., 2.0 = double materials)");
+        
         _harmony = new Harmony(Guid);
         _harmony.PatchAll();
 
