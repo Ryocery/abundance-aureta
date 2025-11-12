@@ -6,14 +6,12 @@ using HarmonyLib;
 
 namespace abundance_aeruta;
 
-public static class Plugin {
-    public const string Guid = "com.ryocery.abundance_aeruta";
-    public const string Name = "Abundance";
-    public const string Version = "1.1.0";
-}
-
-[BepInPlugin(Plugin.Guid, Plugin.Name, Plugin.Version)]
+[BepInPlugin(Guid, Name, Version)]
 public class Abundance : BasePlugin {
+    private const string Guid = "com.ryocery.abundance_aeruta";
+    private const string Name = "Abundance";
+    private const string Version = "1.1.0";
+    
     internal new static ManualLogSource Log { get; private set; } = null!;
     private static Harmony _harmony = null!;
 
@@ -29,7 +27,7 @@ public class Abundance : BasePlugin {
 
     public override void Load() {
         Log = base.Log;
-        Log.LogInfo($"Plugin {Plugin.Guid} is loading...");
+        Log.LogInfo($"Plugin {Guid} is loading...");
 
         EnableMoneyMultiplier = Config.Bind("Money Settings", "EnableMoneyMultiplier", true, "Enable money multiplier");
         MoneyMultiplier = Config.Bind("Money Settings", "MoneyMultiplier", 2.0f, "Money multiplier amount (e.g., 2.0 = double money)");
@@ -38,7 +36,7 @@ public class Abundance : BasePlugin {
         EnableWoodMultiplier = Config.Bind("Wood Settings", "EnableWoodMultiplier", true, "Enable wood multiplier");
         WoodMultiplier = Config.Bind("Wood Settings", "WoodMultiplier", 2.0f, "Wood multiplier amount (e.g., 2.0 = double wood)");
 
-        _harmony = new Harmony(Plugin.Guid);
+        _harmony = new Harmony(Guid);
         _harmony.PatchAll();
 
         Log.LogInfo($"Money multiplier: {(EnableMoneyMultiplier.Value ? $"{MoneyMultiplier.Value}x" : "Disabled")}");
