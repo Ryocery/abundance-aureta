@@ -20,7 +20,7 @@ readme = "../../README.md"
 outdir = "../../artifacts/thunderstore/"
 
 [[build.copy]]
-source = "../../artifacts/bin/InsanePhysics/release/com.github.ryocery.insanephysics.dll"
+source = "../../artifacts/bin/abundance-aeruta/release/abundance-aeruta.dll"
 target = "plugins/"
 
 [[build.copy]]
