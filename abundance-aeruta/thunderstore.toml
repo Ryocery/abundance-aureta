@@ -7,7 +7,7 @@ repository = "https://thunderstore.io"
 [package]
 namespace = "Ryocery"
 name = "Abundance"
-description = "Customizable multipliers for Money, Wood, and Materials in Aeruta."
+description = "Reduces grind by multipling resources and money. Configurable."
 websiteUrl = "https://github.com/Ryocery/abundance-aeruta"
 containsNsfwContent = false
 
@@ -15,20 +15,20 @@ containsNsfwContent = false
 BepInEx-BepInExPack_Aeruta = "6.0.741"
 
 [build]
-icon = "./icon.png"
-readme = "./README.md"
-outdir = "./artifacts/thunderstore/"
+icon = "../../icon.png"
+readme = "../../README.md"
+outdir = "../../artifacts/thunderstore/"
 
 [[build.copy]]
-source = "./artifacts/bin/abundance-aeruta/release/abundance-aeruta.dll"
-target = "plugins/Abundance/"
+source = "../../artifacts/bin/InsanePhysics/release/com.github.ryocery.insanephysics.dll"
+target = "plugins/"
 
 [[build.copy]]
-source = "./CHANGELOG.md"
+source = "../../CHANGELOG.md"
 target = "/"
 
 [[build.copy]]
-source = "./LICENSE"
+source = "../../LICENSE"
 target = "/"
 
 [publish]
