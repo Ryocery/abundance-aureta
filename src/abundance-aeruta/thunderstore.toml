@@ -7,7 +7,7 @@ repository = "https://thunderstore.io"
 [package]
 namespace = "Ryocery"
 name = "Abundance"
-description = "Reduces grind by multipling resources and money. Configurable."
+description = "Reduces grind by multiplying resources and money. Configurable."
 websiteUrl = "https://github.com/Ryocery/abundance-aeruta"
 containsNsfwContent = false
 
