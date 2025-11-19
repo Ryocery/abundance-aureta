@@ -1,0 +1,38 @@
+[config]
+schemaVersion = "0.0.1"
+
+[general]
+repository = "https://thunderstore.io"
+
+[package]
+namespace = "Ryocery"
+name = "Abundance"
+description = "Customizable multipliers for Money, Wood, and Materials in Aeruta."
+websiteUrl = "https://github.com/Ryocery/abundance-aeruta"
+containsNsfwContent = false
+
+[package.dependencies]
+BepInEx-BepInExPack_Aeruta = "6.0.741"
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./artifacts/thunderstore/"
+
+[[build.copy]]
+source = "./artifacts/bin/abundance-aeruta/release/abundance-aeruta.dll"
+target = "plugins/Abundance/"
+
+[[build.copy]]
+source = "./CHANGELOG.md"
+target = "/"
+
+[[build.copy]]
+source = "./LICENSE"
+target = "/"
+
+[publish]
+communities = [ "aeruta", ]
+
+[publish.categories]
+aeruta = [ "mods", ]

@@ -1,0 +1,41 @@
+<Project>
+    <!-- Load user overrides if they exist -->
+    <Import Project="$(SolutionRoot)Config.Build.user.props" Condition="Exists('$(SolutionRoot)Config.Build.user.props')"/>
+
+    <PropertyGroup>
+        <SolutionRoot>$(MSBuildThisFileDirectory)</SolutionRoot>
+        <Authors>Ryocery</Authors>
+        <Version>1.1.0</Version>
+        <Description>Abundance mod for Aeruta</Description>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <!-- This moves the output to /artifacts/bin/ like the other mod -->
+        <UseArtifactsOutput>true</UseArtifactsOutput>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+    </PropertyGroup>
+
+    <!-- Default Paths for Aeruta (IL2CPP) -->
+    <PropertyGroup>
+        <GameInstallDir Condition="'$([MSBuild]::IsOSUnixLike())' == 'true' and $(GameInstallDir) == ''">/mnt/storage/SteamLibrary/steamapps/common/Aeruta/</GameInstallDir>
+        <GameInstallDir Condition="'$([MSBuild]::IsOSUnixLike())' != 'true' and $(GameInstallDir) == ''">$(MSBuildProgramFiles32)/Steam/steamapps/common/Aeruta/</GameInstallDir>
+
+        <PluginsDir Condition="'$([MSBuild]::IsOSUnixLike())' == 'true' and $(PluginsDir) == ''">$(GameInstallDir)/BepInEx/plugins/</PluginsDir>
+        <PluginsDir Condition="'$([MSBuild]::IsOSUnixLike())' != 'true' and $(PluginsDir) == ''">$(GameInstallDir)/BepInEx/plugins/</PluginsDir>
+
+        <!-- IL2CPP Specific Paths -->
+        <BepInExPath>$(GameInstallDir)BepInEx/</BepInExPath>
+        <InteropDir>$(BepInExPath)interop/</InteropDir>
+        <BepInExCoreDir>$(BepInExPath)core/</BepInExCoreDir>
+    </PropertyGroup>
+
+</Project>

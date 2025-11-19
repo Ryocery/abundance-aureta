@@ -30,7 +30,7 @@ public class InventoryPatch {
                 }
             }
             
-            // Abundance.Log.LogInfo($"Adding item ID={itemId}, Type={itemType}, Amount={newItem.Amount}, Name={newItem.Base.Name.ToString()}");
+            Abundance.Log.LogInfo($"Adding item ID={itemId}, Type={itemType}, Amount={newItem.Amount}, Name={newItem.Base.Name.ToString()}");
         } catch (Exception ex) {
             Abundance.Log.LogError($"Error in patch: {ex}");
         }
